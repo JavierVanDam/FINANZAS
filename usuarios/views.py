@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages, auth
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.views.generic.base import TemplateView
 from django.urls import reverse
 from django.contrib.auth import get_user_model
@@ -42,12 +43,12 @@ def login_view(request):
             print('form valido')
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            user = auth.authenticate(request, email=email, password=password)
+            user = authenticate(request, email=email, password=password)
             if user:
                 print('login exitoso: ', user)
                 if user.is_active:
-                    auth.login(request, user)
-                    #!!fundamental https://stackoverflow.com/questions/13136057/django-if-user-is-authenticated-not-working
+                    login(request, user)
+                    # !!fundamental https://stackoverflow.com/questions/13136057/django-if-user-is-authenticated-not-working
                     return redirect('post-login', id=user.id)
                 print("usuario no activo")
             else:
@@ -68,7 +69,7 @@ class post_login_view(TemplateView):
         idUsuario = self.kwargs['id']  # este es el param de la url. pero tenes q agreagrle el self en una CBV
         # traigo el objeto usuario segun el id
         # usuario = User.objects.get(pk=idUsuario)
-        usuario = get_object_or_404(User , pk=idUsuario)
+        usuario = get_object_or_404(User, pk=idUsuario)
         # agrego ese objeto al contexto
         context['usuario'] = usuario
         return context
