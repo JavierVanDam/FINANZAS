@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>HEADER BASE</header>
+
+{% if usuario %}
+        <p>existe usuario {{ usuario.id }} -- {{ usuario.email }}</p>
+{% endif %}
+
+
+{% if request.user %}
+    <p>user {{ request.user.id }} -- {{ request.use.email }}</p>
+{% endif %}
+
+{% block content %}
+
+
+{% endblock %}
+
+</body>
+</html>
