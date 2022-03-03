@@ -59,6 +59,10 @@ def login_view(request):
     form = UserLoginForm()
     return render(request, 'usuarios/login.html', {'form': form})
 
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
 
 class post_login_view(TemplateView):
     template_name = 'usuarios/post_login.html'
