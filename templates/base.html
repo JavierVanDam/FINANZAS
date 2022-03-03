@@ -7,19 +7,26 @@
 <body>
 <header>HEADER BASE</header>
 
-{% if usuario %}
-        <p>existe usuario {{ usuario.id }} -- {{ usuario.email }}</p>
+
+{% if request.user.is_authenticated %}
+<p>User is logged in :)</p>
+<p>Username -->  {{ request.user.email }}</p>
+
+{% else %}
+<p>User is not logged in :, <a href="{% url 'login' %}">LOGUEATE ACA</a>(</p>
 {% endif %}
 
-
-{% if request.user %}
-    <p>user {{ request.user.id }} -- {{ request.use.email }}</p>
-{% endif %}
 
 {% block content %}
 
 
 {% endblock %}
+
+<br>
+<a href="{% url 'cuentas:crea_cuenta' %}">crea_cuenta</a><br>
+<a href="{% url 'cuentas:crea_cuenta_form' %}">crea_cuenta_form</a><br>
+<a href="{% url 'cuentas:lista_cuentas' %}">lista_cuentas</a><br>
+
 
 </body>
 </html>

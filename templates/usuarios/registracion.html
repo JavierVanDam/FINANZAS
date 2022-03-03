@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if usuario %}
+    <div>YA SOS DE LA FLIA: {{ usuario.id }} !!</div>
+{% else %}
+        REGISTRATE VIEJA ASI SOS PARTE DE LA FLIA!
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="REGISTRARSE">
+            </form>
+        </div>
+{% endif %}
+</body>
+</html>

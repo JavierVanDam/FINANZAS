@@ -1,0 +1,101 @@
+[
+{
+    "model": "cuentas.cuenta",
+    "pk": 8,
+    "fields": {
+        "nombre": "aaa",
+        "tipo_cuenta": "GASTOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 9,
+    "fields": {
+        "nombre": "aaa",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 10,
+    "fields": {
+        "nombre": "bbb",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 11,
+    "fields": {
+        "nombre": "bbb",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 12,
+    "fields": {
+        "nombre": "aaa",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 13,
+    "fields": {
+        "nombre": "addsa",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": true
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 14,
+    "fields": {
+        "nombre": "sd",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 15,
+    "fields": {
+        "nombre": "sbaaaafasva",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 16,
+    "fields": {
+        "nombre": "aaaasbaaaafasva",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 17,
+    "fields": {
+        "nombre": "ADVAVADVSVDSVA",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": false
+    }
+},
+{
+    "model": "cuentas.cuenta",
+    "pk": 18,
+    "fields": {
+        "nombre": "DAGAGWAAWEAW",
+        "tipo_cuenta": "INGRESOS",
+        "permite_cuotas": true
+    }
+}
+]

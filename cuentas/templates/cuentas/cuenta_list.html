@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block customCss %}
+<style>
+    ul {
+        list-style-type: square;
+    }
+</style>
+{% endblock%}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-6 mx-auto">
+        <ul>
+            {% for cuenta in object_list %}
+            <li>
+                <a href="{%  url 'detalle_cuenta' cuenta.id %}">
+                    <span>{{ cuenta.nombre }}</span> </a>
+                |||||| <a href="{%  url 'detalle_cuenta' cuenta.id %}"><span>{{ cuenta.tipo_cuenta }}</span> </a>
+            </li>
+
+
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
