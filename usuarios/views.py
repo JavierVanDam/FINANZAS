@@ -49,7 +49,7 @@ def login_view(request):
                 if user.is_active:
                     login(request, user)
                     # !!fundamental https://stackoverflow.com/questions/13136057/django-if-user-is-authenticated-not-working
-                    return redirect('post-login', id=user.id)
+                    return redirect('usuarios:post-login', id=user.id)
                 print("usuario no activo")
             else:
                 print('usuario contraseña no valido')
@@ -61,7 +61,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('usuarios:login')
 
 
 class post_login_view(TemplateView):
