@@ -1,33 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<header>HEADER BASE</header>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <title>HTML BASE</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header class="header-base">
+      <div class="img-logo">
+        <img src="{% static 'img/logo.jpeg' %}" alt="LOGO" />
+      </div>
+      <nav class="barra-navegacion">
+        {% if request.user.is_authenticated %}
+        <div class="item-nav">
+          <span style="font-weight: bold">{{ request.user.email }}</span>
+        </div>
+        <div class="item-nav">
+          <a href="{% url 'usuarios:logout' %}">LOGOUT</a>
+        </div>
 
+        {% else %}
 
-{% if request.user.is_authenticated %}
-<p>User is logged in :)</p>
-<p>Username -->  {{ request.user.email }}</p>
-<p><a href="{% url 'logout' %}">LOGOUT</a></p>
+        <div>
+          <a href="{% url 'usuarios:login' %}">LOGUEATE ACA</a>
+        </div>
+        {% endif %}
+      </nav>
+      <!-- <div>imagen</div>
+      <div>navegacion</div> -->
+    </header>
 
-{% else %}
-<p>User is not logged in :, <a href="{% url 'login' %}">LOGUEATE ACA</a>(</p>
-{% endif %}
+    <br />
+    {% block content %} 
+    
+    <div class="contenido-principal">
+      <div class="titulo-cont-ppal">
+            CUENTAS
+      </div>
 
+      <div class="item-cont-ppal">
+            <ul class="listado-contenido">
+              <li class="item-listado-contenido"><a href="{% url 'cuentas:crea_cuenta' %}">crea_cuenta</a></li>
+              <li class="item-listado-contenido"><a href="{% url 'cuentas:crea_cuenta_form' %}">crea_cuenta_form</a></li>
+              <li class="item-listado-contenido"><a href="{% url 'cuentas:lista_cuentas' %}">lista_cuentas</a></li>
+            </ul>
+        </div>
+    </div>
 
-{% block content %}
+    
+    {% endblock %}
+    
+    
+    
 
-
-{% endblock %}
-
-<br>
-<a href="{% url 'cuentas:crea_cuenta' %}">crea_cuenta</a><br>
-<a href="{% url 'cuentas:crea_cuenta_form' %}">crea_cuenta_form</a><br>
-<a href="{% url 'cuentas:lista_cuentas' %}">lista_cuentas</a><br>
-
-
-</body>
+    
+  </body>
 </html>
