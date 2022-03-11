@@ -1,10 +1,10 @@
 from django.core import validators
 from django.db import models
 from cuentas.models import Cuenta
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 
-
+User = get_user_model()
 class CategoriaIngreso(models.Model):
     nombre = models.CharField(max_length=64, unique=True, 
                 validators=[MinLengthValidator(limit_value=8, message="VALOR MUY BAJO DE CATEG INGRESO")])
