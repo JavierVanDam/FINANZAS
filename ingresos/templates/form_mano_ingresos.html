@@ -1,0 +1,19 @@
+{% extends 'base_sin_header.html' %} 
+{% load crispy_forms_tags %} 
+{% block principal %}
+<div class="row">
+  {% if errores != '' %} 
+  HAY ERRORES EN EL FORM: {{ errores }} 
+  {% endif %}
+  
+  <form action="" method="post">
+    
+        {{ form|crispy }}
+        {% csrf_token %}
+        <div class="text-center">
+      <button type="submit" class="btn btn-dark">NUEVO INGRESO</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
