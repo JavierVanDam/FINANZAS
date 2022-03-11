@@ -13,8 +13,7 @@ class CreaCuenta(PermissionRequiredMixin, CreateView):
     permission_required = 'cuentas.add_cuenta'
     model = Cuenta
     fields = '__all__'
-    success_url = reverse_lazy('lista_cuentas') #'http://127.0.0.1:8000/base/'
-
+    success_url = reverse_lazy('cuentas:lista_cuentas') #'http://127.0.0.1:8000/base/'
 
 class ListaCuentas(ListView):
     model = Cuenta
