@@ -22,3 +22,9 @@ class Ingreso(models.Model):
     fecha_carga = models.DateTimeField(auto_now_add=True)
     #auto_now_add setea ahora/hoy cuando el objeto es creado por primera vez y desp es inmodificable en bbdd
     #auto_now setea ahora/hoy cuando el objeto es creado o updateado, es decir cuando se llama .save()
+    def __str__(self):
+        return f'{self.fecha} - {self.monto} - {self.usuario}'
+
+
+#
+# {'fecha': '2022-03-24', 'monto': '1', 'categoria': '2', 'usuario': '3'} 'escondidazo': 'chiche', 'csrfmiddlewaretoken': 'rxsfeBtekKCTvXPwJYZlGOqwMeXyGCpsM0UDuTe4xofYCFdrf2yeWXm3ehU3zXNR'}

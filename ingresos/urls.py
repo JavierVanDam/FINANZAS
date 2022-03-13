@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import procesaNuevoIngreso, procesaNuevoIngreso2, procesaNuevoIngreso3
+from .views import procesaNuevoIngreso, vistaProcesaNuevoIngreso
 
 urlpatterns = [
+    # path('',vistaProcesaNuevoIngreso.as_view(), name='procesa_nuevo_ingreso'),
     path('',procesaNuevoIngreso, name='procesa_nuevo_ingreso'),
-    path('_2',procesaNuevoIngreso2, name='procesa_nuevo_ingreso2'),
-    path('_3',procesaNuevoIngreso3, name='procesa_nuevo_ingreso3')
+
 ]

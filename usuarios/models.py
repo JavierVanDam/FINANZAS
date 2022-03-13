@@ -29,5 +29,16 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
+    def pertenece_a(self, nombre_grupo):
+        return self.groups.filter(name=nombre_grupo).count()
+
     def __str__(self):
         return self.email
+
+
+
+
+# from django.contrib.auth import get_user_model
+# User = get_user_model()
+# u = User.objects.get(pk=3)
+
