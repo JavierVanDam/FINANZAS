@@ -22,7 +22,26 @@ body{
     color: rgb(211, 63, 26);
 }
 
+.tabla-ingresos td{
+    padding: 9px;
+    border: solid 1px lightgreen;
+}
 
+.tabla-ingresos th{
+    padding: 11px;
+    background-color: lightgreen;
+    font-size: bold;
+}
+
+.tabla-ingresos{
+    margin: 0 auto;
+}
+
+
+.categorias_ingreso{
+    list-style: none;
+    padding: 0;
+}
 .footerazo{
     display: flex;
     background-color: blueviolet;
