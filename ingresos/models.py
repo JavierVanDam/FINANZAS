@@ -8,14 +8,14 @@ User = get_user_model()
 class CategoriaIngreso(models.Model):
     nombre = models.CharField(max_length=64, unique=True, 
                 validators=[MinLengthValidator(limit_value=8, message="VALOR MUY BAJO DE CATEG INGRESO")])
+
     def __str__(self):
         return self.nombre
 
 
 class Ingreso(models.Model):
     fecha = models.DateField()
-    monto = models.FloatField(validators=[
-            MinValueValidator(limit_value=100, message="monto inferior a 100"),
+    monto = models.FloatField(validators=[MinValueValidator(limit_value=100, message="monto inferior a 100"),
             MaxValueValidator(limit_value=100000, message="monto superior a %(limit_value)")])
     categoria = models.ForeignKey(CategoriaIngreso, related_name="tipo_de_ingreso", on_delete=models.CASCADE, default=1)
     usuario = models.ForeignKey(User, related_name="usuario_carga_ingreso", on_delete=models.CASCADE, default=1)
