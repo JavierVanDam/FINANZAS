@@ -38,7 +38,4 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
 
 
-# from django.contrib.auth import get_user_model
-# User = get_user_model()
-# u = User.objects.get(pk=3)
 

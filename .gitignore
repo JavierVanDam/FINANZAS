@@ -10,8 +10,10 @@ media
 *.bak 
 
 venv/
+debugs/
 .vscode/
 .idea/
 
 
 *.sqlite3
+funciones_mias.py
