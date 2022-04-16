@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div>
+    {% if errores %}
+    HAY ERRORES EN EL FORM: {{ errores }}
+    {% endif %}
+    {% if status %}
+    {{ status }}
+    {% endif %}
+</div>
+
+<div style="text-align: center;">
+    <span>chiche</span>
+    <table class="tabla-ingresos" style="margin: 0 auto;">
+        <th>fecha</th>
+        <th>monto</th>
+        <th>categoria</th>
+        <th>nombre</th>
+        <th>apellido</th>
+        <th>mail</th>
+        {% for ingreso in object_list %}
+        <tr>
+            <a href="">
+                <td>{{ ingreso.fecha }}</td>
+                <td>{{ ingreso.monto }}</td>
+                <td>{{ ingreso.categoria }}</td>
+            </a>
+            <td>{{ ingreso.usuario.nombre }}</td>
+            <td>{{ ingreso.usuario.apellido }}</td>
+            <td>{{ ingreso.usuario.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
