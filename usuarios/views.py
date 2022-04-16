@@ -4,10 +4,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic.base import TemplateView
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from django.views.generic import View, ListView, DetailView
 
 from .forms import RegisterForm, UserLoginForm
 
 User = get_user_model()
+
+
+class DetalleUsuario(DetailView):
+    model = User
 
 
 def registracion(request):

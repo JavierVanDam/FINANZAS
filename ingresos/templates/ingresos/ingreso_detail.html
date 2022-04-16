@@ -9,29 +9,33 @@
     {{ status }}
     {% endif %}
 </div>
+<style type="text/css">
+    .parent {
+        display: flex;
+        align-items: center; /*align-items alinea el cross axis*/
+        justify-content: space-around; /*justify-content alinea el main axis*/
+
+    }
+
+    .parent > div {
+        background-color: lightblue;
+        padding: 4px;
+        border-radius: 5px;
+        width: 10%;
+    }
+
+
+</style>
 
 <div style="text-align: center;">
-    <span>chiche</span>
-    <table class="tabla-ingresos" style="margin: 0 auto;">
-        <th>fecha</th>
-        <th>monto</th>
-        <th>categoria</th>
-        <th>nombre</th>
-        <th>apellido</th>
-        <th>mail</th>
-        {% for ingreso in object_list %}
-        <tr>
-            <a href="">
-                <td>{{ ingreso.fecha }}</td>
-                <td>{{ ingreso.monto }}</td>
-                <td>{{ ingreso.categoria }}</td>
-            </a>
-            <td>{{ ingreso.usuario.nombre }}</td>
-            <td>{{ ingreso.usuario.apellido }}</td>
-            <td>{{ ingreso.usuario.email }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    INGRESO
+    <div class="parent">
+        <div>{{ object.fecha }}</div>
+        <div>{{ object.monto }}</div>
+        <div>{{ object.categoria }}</div>
+        <div>{{ object.usuario }}</div>
+    </div>
 </div>
+
 
 {% endblock %}

@@ -3,13 +3,21 @@ from django.shortcuts import render, redirect, reverse
 from .models import Ingreso, CategoriaIngreso
 from .forms import *
 from django.contrib.auth.models import User
-from django.views.generic import View, ListView
+from django.views.generic import View, ListView, DetailView
 from django.views.generic.edit import CreateView
 
 from funciones_mias import imprimeVarsRequest
 
 class ListadoIngresos(ListView):
     model = Ingreso
+    # ordering = ['fecha'] ==> lo pisa get_queryset
+    def get_queryset(self):
+        queryset = Ingreso.objects.filter(usuario=self.request.user).order_by('-monto')
+        return queryset
+
+class DetalleIngreso(DetailView):
+    model = Ingreso
+
 
 class CreaCategoria(CreateView):
     model = CategoriaIngreso
