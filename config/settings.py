@@ -28,13 +28,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
 
-
+    "corsheaders",
     'crispy_forms',
+    'rest_framework',
 
 
     'usuarios',
     'cuentas',
-    'ingresos'
+    'ingresos',
+
+
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -45,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 
@@ -74,16 +80,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'todo_app',
+        'USER': 'javier',
+        'PASSWORD': 'piero',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -122,7 +137,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
-
 LOGIN_REDIRECT_URL = 'usuarios:login'
-LOGIN_URL='usuarios:login'
+LOGIN_URL = 'usuarios:login'
 
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:8080"]
